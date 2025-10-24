@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block title %}Chain-Cred — Decentralized Freelance Marketplace{% endblock %}
+
+{% block content %}
+<section class="relative overflow-hidden">
+  <!-- Hero -->
+  <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-24">
+    <div class="grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
+          Chain-Cred
+          <span class="block cc-gradient-text">Decentralized Freelance Marketplace</span>
+        </h1>
+        <p class="mt-5 text-lg text-slate-300 max-w-xl">
+          Build trust with blockchain-based credibility. Showcase NFT credentials.
+          Get paid securely via smart contracts. Own your work history on-chain.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="/login" class="btn-primary">Get Started</a>
+          <button class="btn-secondary" data-action="connect-wallet">Connect Wallet</button>
+        </div>
+        <div class="mt-6 text-sm text-slate-400">
+          No crypto? No problem — use email login and connect later.
+        </div>
+      </div>
+      <div class="relative">
+        <div class="relative rounded-2xl bg-white/5 border border-white/10 p-6 backdrop-blur">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="rounded-xl bg-gradient-to-br from-tealcc/20 to-goldcc/10 p-5 border border-white/10">
+              <div class="text-2xl font-bold text-goldcc">92</div>
+              <div class="text-xs text-slate-300">Cred Score</div>
+            </div>
+            <div class="rounded-xl bg-gradient-to-br from-tealcc/20 to-goldcc/10 p-5 border border-white/10">
+              <div class="text-2xl font-bold">12</div>
+              <div class="text-xs text-slate-300">Completed Gigs</div>
+            </div>
+            <div class="rounded-xl bg-gradient-to-br from-tealcc/20 to-goldcc/10 p-5 border border-white/10 col-span-2">
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full bg-gradient-to-tr from-tealcc to-goldcc"></div>
+                <div>
+                  <div class="font-semibold">0x12c...9af</div>
+                  <div class="text-xs text-slate-400">Connected Wallet</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pointer-events-none absolute -top-10 -left-10 h-40 w-40 rounded-full bg-tealcc/20 blur-3xl"></div>
+        <div class="pointer-events-none absolute -bottom-8 -right-8 h-44 w-44 rounded-full bg-goldcc/20 blur-3xl"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pb-20">
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm1 15h-2v-2h2zm0-4h-2V7h2z"/></svg>
+        </div>
+        <h3 class="feature-title">Blockchain Credibility</h3>
+        <p class="feature-text">Immutable proofs of work and ratings, verified on-chain for every gig.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6"><path d="M12 2 1 21h22L12 2Zm0 4.84L19.53 19H4.47L12 6.84Z"/></svg>
+        </div>
+        <h3 class="feature-title">NFT Credentials</h3>
+        <p class="feature-text">Issue and display NFT-based certificates for completed projects and skills.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6"><path d="M12 1a9 9 0 0 0-9 9c0 6.75 9 13 9 13s9-6.25 9-13a9 9 0 0 0-9-9Zm0 12.25A3.25 3.25 0 1 1 15.25 10 3.25 3.25 0 0 1 12 13.25Z"/></svg>
+        </div>
+        <h3 class="feature-title">Escrowed Payments</h3>
+        <p class="feature-text">Smart-contract powered escrow for secure, milestone-based payouts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

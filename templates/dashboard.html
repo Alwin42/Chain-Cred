@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard — Chain-Cred{% endblock %}
+
+{% block content %}
+<section class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+    <!-- Sidebar -->
+    <aside class="lg:col-span-3">
+      <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-4">
+        <nav class="space-y-1">
+          <a href="#" class="sidebar-link active">Overview</a>
+          <a href="#" class="sidebar-link">My Gigs</a>
+          <a href="#" class="sidebar-link">Earnings</a>
+          <a href="#" class="sidebar-link">Settings</a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="lg:col-span-9 space-y-6">
+      <!-- Profile Overview -->
+      <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-6">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+          <div class="h-16 w-16 rounded-2xl bg-gradient-to-tr from-tealcc to-goldcc"></div>
+          <div class="flex-1">
+            <div class="flex flex-wrap items-center gap-3">
+              <h2 class="text-xl font-semibold">Alex Freelancer</h2>
+              <span class="inline-flex items-center gap-1 rounded-lg border border-tealcc/40 bg-tealcc/10 px-2 py-1 text-xs text-tealcc">
+                <span class="h-2 w-2 rounded-full bg-tealcc"></span>
+                Cred Score: 92
+              </span>
+            </div>
+            <p class="mt-1 text-sm text-slate-300">Full-stack developer • Solidity • React • DeFi</p>
+            <div class="mt-2 text-xs font-mono text-slate-400 flex items-center gap-2">
+              <span>Wallet:</span>
+              <span id="dashboardWallet">0x12c...9af</span>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <button class="btn-secondary">Edit Profile</button>
+            <button class="btn-primary">New Gig</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div class="stat-card">
+          <div class="stat-label">Active Gigs</div>
+          <div class="stat-value">3</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Completed</div>
+          <div class="stat-value">12</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Earnings</div>
+          <div class="stat-value">4.2 ETH</div>
+        </div>
+      </div>
+
+      <!-- Gigs and Earnings -->
+      <div class="grid lg:grid-cols-2 gap-6">
+        <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-semibold">Active Gigs</h3>
+            <a href="#" class="text-sm hover:text-goldcc">View all</a>
+          </div>
+          <div class="space-y-4">
+            <div class="gig-item">
+              <div>
+                <div class="font-medium">DeFi Dashboard UI</div>
+                <div class="text-xs text-slate-400">Milestone 2 of 4 • Due in 5d</div>
+              </div>
+              <div class="text-xs rounded-lg bg-goldcc/10 border border-goldcc/30 text-goldcc px-2 py-1">In progress</div>
+            </div>
+            <div class="gig-item">
+              <div>
+                <div class="font-medium">Smart Contract Audit</div>
+                <div class="text-xs text-slate-400">Milestone 1 of 2 • Due in 12d</div>
+              </div>
+              <div class="text-xs rounded-lg bg-tealcc/10 border border-tealcc/30 text-tealcc px-2 py-1">Funded</div>
+            </div>
+            <div class="gig-item">
+              <div>
+                <div class="font-medium">NFT Minting DApp</div>
+                <div class="text-xs text-slate-400">Milestone 3 of 3 • Due in 2d</div>
+              </div>
+              <div class="text-xs rounded-lg bg-white/10 border border-white/20 text-slate-200 px-2 py-1">Review</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-semibold">Earnings Overview</h3>
+            <a href="#" class="text-sm hover:text-goldcc">Details</a>
+          </div>
+          <div class="space-y-3">
+            <div class="earn-item">
+              <div>
+                <div class="font-medium">Milestone Released</div>
+                <div class="text-xs text-slate-400">DeFi Dashboard • 0.8 ETH</div>
+              </div>
+              <div class="text-xs text-slate-300">2d ago</div>
+            </div>
+            <div class="earn-item">
+              <div>
+                <div class="font-medium">Escrow Funded</div>
+                <div class="text-xs text-slate-400">Smart Contract Audit • 1.5 ETH</div>
+              </div>
+              <div class="text-xs text-slate-300">6d ago</div>
+            </div>
+            <div class="earn-item">
+              <div>
+                <div class="font-medium">Milestone Released</div>
+                <div class="text-xs text-slate-400">NFT DApp • 0.9 ETH</div>
+              </div>
+              <div class="text-xs text-slate-300">1w ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
