@@ -1,0 +1,76 @@
+{% raw %}
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
+          Chain-Cred — Decentralized Freelance Marketplace
+        </h1>
+        <p class="mt-6 text-lg text-white/80 max-w-2xl">
+          Showcase your on-chain credibility, earn NFT credentials for your work, and get paid via secure smart contracts. Web3-native work, reimagined.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="/login" class="px-6 py-3 rounded-lg bg-gold text-deepblue font-semibold hover:brightness-110 transition">Get Started</a>
+          <button id="heroConnectWallet" class="px-6 py-3 rounded-lg bg-teal text-white font-semibold hover:bg-teal/90 transition">Connect Wallet</button>
+        </div>
+        <div class="mt-6 text-sm text-white/60">No gas until you accept a contract.</div>
+      </div>
+      <div class="relative">
+        <div class="absolute -inset-20 bg-gradient-to-tr from-teal/20 via-gold/10 to-transparent blur-3xl"></div>
+        <div class="relative rounded-2xl border border-white/10 bg-white/5 p-6 shadow-2xl">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="rounded-xl bg-white/5 p-4 border border-white/10">
+              <div class="text-sm text-white/70">Credibility Score</div>
+              <div class="mt-2 text-3xl font-bold">92</div>
+            </div>
+            <div class="rounded-xl bg-white/5 p-4 border border-white/10">
+              <div class="text-sm text-white/70">Active Contracts</div>
+              <div class="mt-2 text-3xl font-bold">3</div>
+            </div>
+            <div class="col-span-2 rounded-xl bg-white/5 p-4 border border-white/10">
+              <div class="flex items-center justify-between">
+                <div>
+                  <div class="text-sm text-white/70">Latest Credential NFT</div>
+                  <div class="mt-1 font-semibold">UI/UX Design Badge</div>
+                </div>
+                <div class="text-gold">★ ★ ★ ★ ★</div>
+              </div>
+            </div>
+            <div class="col-span-2 rounded-xl bg-white/5 p-4 border border-white/10">
+              <div class="text-sm text-white/70">Secure Escrow Payment</div>
+              <div class="mt-1 text-white/90">Funds released only after on-chain approval.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-2xl font-bold">Why Chain-Cred?</h2>
+    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="rounded-xl p-6 border border-white/10 bg-white/5">
+        <div class="text-gold text-2xl">⛓️</div>
+        <h3 class="mt-3 font-semibold">Blockchain-based Credibility</h3>
+        <p class="mt-2 text-white/70">Prove your reputation with immutable on-chain work records.</p>
+      </div>
+      <div class="rounded-xl p-6 border border-white/10 bg-white/5">
+        <div class="text-gold text-2xl">🪪</div>
+        <h3 class="mt-3 font-semibold">NFT Credentials</h3>
+        <p class="mt-2 text-white/70">Earn soulbound credentials that showcase verified achievements.</p>
+      </div>
+      <div class="rounded-xl p-6 border border-white/10 bg-white/5">
+        <div class="text-gold text-2xl">🔐</div>
+        <h3 class="mt-3 font-semibold">Secure Smart Contract Payments</h3>
+        <p class="mt-2 text-white/70">Escrow releases payments only when deliverables are approved.</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% endraw %}

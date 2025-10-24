@@ -1,0 +1,76 @@
+{% raw %}
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+  <div class="grid lg:grid-cols-4 gap-8">
+    <!-- Sidebar -->
+    <aside class="lg:col-span-1 space-y-2">
+      <div class="rounded-xl border border-white/10 bg-white/5 p-4">
+        <nav class="space-y-1">
+          <a href="#" class="block px-3 py-2 rounded-lg hover:bg-white/10">Overview</a>
+          <a href="#" class="block px-3 py-2 rounded-lg hover:bg-white/10">My Gigs</a>
+          <a href="#" class="block px-3 py-2 rounded-lg hover:bg-white/10">Earnings</a>
+          <a href="#" class="block px-3 py-2 rounded-lg hover:bg-white/10">Settings</a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="lg:col-span-3 space-y-8">
+      <!-- Profile Header -->
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <div class="flex items-center gap-4">
+          <img class="w-16 h-16 rounded-full ring-2 ring-gold/60" src="https://api.dicebear.com/7.x/shapes/svg?seed=chaincred" alt="avatar" />
+          <div>
+            <h2 class="text-xl font-bold">Alex Web3</h2>
+            <p class="text-white/70 text-sm">Full-stack developer • Solidity • React • Tailwind</p>
+            <div class="mt-2 text-sm text-white/70">Wallet: <span id="dashboardWallet" class="font-mono">Not connected</span></div>
+          </div>
+          <div class="ml-auto">
+            <div class="text-sm text-white/70">Credibility Score</div>
+            <div class="text-3xl font-bold text-gold">92</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="rounded-xl border border-white/10 bg-white/5 p-6">
+          <div class="text-white/70 text-sm">Active Gigs</div>
+          <div class="mt-2 text-3xl font-bold">3</div>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-white/5 p-6">
+          <div class="text-white/70 text-sm">Earnings (30d)</div>
+          <div class="mt-2 text-3xl font-bold">Ξ 1.8</div>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-white/5 p-6">
+          <div class="text-white/70 text-sm">Job Success</div>
+          <div class="mt-2 text-3xl font-bold">98%</div>
+        </div>
+      </div>
+
+      <!-- Gigs -->
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <div class="flex items-center justify-between">
+          <h3 class="font-semibold">My Gigs</h3>
+          <a href="#" class="text-sm text-gold hover:underline">View all</a>
+        </div>
+        <div class="mt-4 grid md:grid-cols-2 gap-4">
+          <div class="rounded-xl border border-white/10 bg-white/5 p-4">
+            <div class="font-semibold">DeFi Dashboard</div>
+            <div class="text-white/70 text-sm">Smart contract integration and UI</div>
+            <div class="mt-2 text-sm">Status: <span class="text-gold">In Progress</span></div>
+          </div>
+          <div class="rounded-xl border border-white/10 bg-white/5 p-4">
+            <div class="font-semibold">NFT Minting Site</div>
+            <div class="text-white/70 text-sm">SBT credential implementation</div>
+            <div class="mt-2 text-sm">Status: <span class="text-gold">In Review</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% endraw %}
