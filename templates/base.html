@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Chain-Cred{% endblock %}</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ccDeep: '#0D1321',
+            ccTeal: '#0D9488',
+            ccGold: '#FBBF24'
+          },
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+  {% block head %}{% endblock %}
+</head>
+<body class="min-h-screen flex flex-col bg-ccDeep text-slate-100 font-sans">
+  <!-- Navbar -->
+  <header class="sticky top-0 z-40 bg-ccDeep/90 backdrop-blur border-b border-teal-500/10">
+    <nav class="container mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <!-- Brand -->
+        <a href="{{ url_for('landing') }}" class="flex items-center gap-2">
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded bg-ccTeal/10 text-ccTeal font-bold">C</span>
+          <span class="text-lg font-semibold bg-gradient-to-r from-ccTeal to-ccGold bg-clip-text text-transparent">Chain-Cred</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-6">
+          <a href="{{ url_for('landing') }}" class="hover:text-ccGold transition {% if active_page=='home' %}text-ccGold{% endif %}">Home</a>
+          <a href="{{ url_for('find_work') }}" class="hover:text-ccGold transition {% if active_page=='find_work' %}text-ccGold{% endif %}">Find Work</a>
+          <a href="{{ url_for('hire_freelancers') }}" class="hover:text-ccGold transition {% if active_page=='hire' %}text-ccGold{% endif %}">Hire Freelancers</a>
+          <a href="{{ url_for('login') }}" class="hover:text-ccGold transition {% if active_page=='login' %}text-ccGold{% endif %}">Login</a>
+
+          <!-- Wallet display -->
+          <div class="flex items-center gap-3">
+            <button type="button" data-connect-wallet id="navConnectBtn"
+                    class="px-4 py-2 rounded-md bg-ccTeal text-white hover:bg-teal-600 transition shadow">
+              Connect Wallet
+            </button>
+            <div id="navWalletDisplay" class="text-sm text-slate-300 hidden">
+              <span class="text-slate-400">Wallet:</span>
+              <span data-wallet-display class="font-medium text-ccGold cursor-pointer" title="Click to copy"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded hover:bg-white/5"
+                data-toggle="mobile-nav" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h12M4 18h8"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="mobileNav" class="md:hidden hidden pb-4">
+        <div class="flex flex-col gap-4">
+          <a href="{{ url_for('landing') }}" class="hover:text-ccGold transition {% if active_page=='home' %}text-ccGold{% endif %}">Home</a>
+          <a href="{{ url_for('find_work') }}" class="hover:text-ccGold transition {% if active_page=='find_work' %}text-ccGold{% endif %}">Find Work</a>
+          <a href="{{ url_for('hire_freelancers') }}" class="hover:text-ccGold transition {% if active_page=='hire' %}text-ccGold{% endif %}">Hire Freelancers</a>
+          <a href="{{ url_for('login') }}" class="hover:text-ccGold transition {% if active_page=='login' %}text-ccGold{% endif %}">Login</a>
+          <div class="pt-2 flex items-center gap-3">
+            <button type="button" data-connect-wallet
+                    class="px-4 py-2 rounded-md bg-ccTeal text-white hover:bg-teal-600 transition shadow w-full">
+              Connect Wallet
+            </button>
+            <div id="mobileWalletDisplay" class="text-sm text-slate-300 hidden">
+              <span class="text-slate-400">Wallet:</span>
+              <span data-wallet-display class="font-medium text-ccGold"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-16">
+    <div class="h-px w-full bg-gradient-to-r from-ccTeal via-ccTeal/60 to-ccGold/60"></div>
+    <div class="container mx-auto px-4 py-8 flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded bg-ccTeal/10 text-ccTeal font-bold">C</span>
+        <div>
+          <div class="font-semibold">Chain-Cred</div>
+          <div class="text-sm text-slate-400">Decentralized Freelance Marketplace — Build credibility on-chain.</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-4 text-slate-400">
+        <a href="#" class="hover:text-ccGold" aria-label="Twitter">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.633 7.997c.013.179.013.357.013.537 0 5.47-4.16 11.778-11.778 11.778-2.342 0-4.515-.684-6.345-1.86.323.038.633.051.969.051a8.32 8.32 0 0 0 5.154-1.774 4.16 4.16 0 0 1-3.883-2.88c.25.038.5.064.763.064.366 0 .733-.051 1.074-.141A4.154 4.154 0 0 1 2.9 9.586v-.051c.562.311 1.2.5 1.886.526A4.152 4.152 0 0 1 2.85 6.7c0-.77.205-1.472.562-2.086a11.8 11.8 0 0 0 8.556 4.345 4.69 4.69 0 0 1-.103-.95 4.156 4.156 0 0 1 7.194-2.842 8.19 8.19 0 0 0 2.636-1.006 4.17 4.17 0 0 1-1.828 2.293 8.302 8.302 0 0 0 2.395-.65 8.954 8.954 0 0 1-2.019 2.193z"/></svg>
+        </a>
+        <a href="#" class="hover:text-ccGold" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.9 5.33.9 11.6c0 4.88 3.18 9.01 7.59 10.47.56.1.76-.24.76-.53 0-.27-.01-.98-.02-1.93-3.09.67-3.74-1.49-3.74-1.49-.51-1.29-1.25-1.64-1.25-1.64-1.02-.7.08-.69.08-.69 1.12.08 1.71 1.16 1.71 1.16 1 .71 2.62.5 3.26.38.1-.73.39-1.24.71-1.53-2.47-.28-5.06-1.23-5.06-5.47 0-1.21.43-2.2 1.14-2.97-.11-.28-.5-1.41.11-2.94 0 0 .95-.3 3.11 1.13a10.74 10.74 0 0 1 5.66 0c2.16-1.43 3.11-1.13 3.11-1.13.62 1.53.23 2.66.12 2.94.72.77 1.15 1.76 1.15 2.97 0 4.25-2.59 5.19-5.06 5.47.4.34.76 1.01.76 2.04 0 1.47-.01 2.65-.01 3.01 0 .3.2.64.77.53A10.74 10.74 0 0 0 23.1 11.6C23.1 5.33 18.27.5 12 .5z"/></svg>
+        </a>
+        <a href="#" class="hover:text-ccGold" aria-label="Discord">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.07.07 0 0 0-.073.035c-.21.374-.44.863-.602 1.247-1.828-.272-3.659-.272-5.486 0-.162-.391-.392-.873-.603-1.247a.07.07 0 0 0-.073-.035c-1.7.294-3.354.78-4.886 1.515a.065.065 0 0 0-.03.025C1.453 8.113.84 11.75 1.016 15.35a.08.08 0 0 0 .03.054 19.98 19.98 0 0 0 6.07 3.077.07.07 0 0 0 .077-.025c.468-.641.885-1.32 1.243-2.03a.07.07 0 0 0-.04-.097 12.9 12.9 0 0 1-1.841-.753.07.07 0 0 1-.007-.119c.124-.092.249-.189.367-.287a.07.07 0 0 1 .074-.008c3.853 1.77 8.01 1.77 11.832 0a.07.07 0 0 1 .075.007c.118.098.243.197.368.288a.07.07 0 0 1-.006.119c-.595.282-1.213.532-1.842.754a.07.07 0 0 0-.04.097c.37.71.787 1.389 1.244 2.03a.07.07 0 0 0 .077.025 19.96 19.96 0 0 0 6.07-3.077.08.08 0 0 0 .03-.054c.25-5.067-.423-8.684-2.64-10.955a.065.065 0 0 0-.03-.025zM8.02 13.854c-1.183 0-2.157-1.094-2.157-2.433 0-1.34.957-2.433 2.156-2.433 1.21 0 2.172 1.103 2.158 2.433 0 1.339-.957 2.433-2.157 2.433zm7.955 0c-1.183 0-2.157-1.094-2.157-2.433 0-1.34.957-2.433 2.157-2.433 1.21 0 2.172 1.103 2.158 2.433 0 1.339-.948 2.433-2.158 2.433z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="pb-6 text-center text-xs text-slate-500">
+      © <span id="year"></span> Chain-Cred. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>
